@@ -28,7 +28,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.firstinspires.ftc.teamcode.diyaCode.;
+package org.firstinspires.ftc.teamcode.diyaCode;
 
 
 
@@ -98,22 +98,11 @@ public class diyaDrive extends OpMode {
 
     @Override
     public void init() {
-        frontLeftDrive = hardwareMap.get(DcMotor.class, "front_left_drive");
-        frontRightDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
-        backLeftDrive = hardwareMap.get(DcMotor.class, "back_left_drive");
-        backRightDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
-        intake = hardwareMap.get(DcMotor.class, "intake");
-        limelight = hardwareMap.get(Limelight3A.class, "limelight");
-        shooter = hardwareMap.get(DcMotor.class, "shooter");
+        frontLeftDrive = hardwareMap.get(DcMotor.class, "frontLeftDrive");
+        frontRightDrive = hardwareMap.get(DcMotor.class, "frontRightDrive");
+        backLeftDrive = hardwareMap.get(DcMotor.class, "backLeftDrive");
+        backRightDrive = hardwareMap.get(DcMotor.class, "backRightDrive");
 
-
-
-
-        limelight.start();
-        telemetry.setMsTransmissionInterval(11);
-
-
-        limelight.pipelineSwitch(0);
 
 
         // We set the left motors in reverse which is needed for drive trains where the left
@@ -121,8 +110,6 @@ public class diyaDrive extends OpMode {
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD);
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);
-        intake.setDirection(DcMotor.Direction.REVERSE);
-        shooter.setDirection(DcMotorSimple.Direction.REVERSE);
         // This uses RUN_USING_ENCODER to be more accurate.   If you don't have the encoder
         // wires, you should remove these
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -163,77 +150,67 @@ public class diyaDrive extends OpMode {
 
 
 
-        LLStatus status = limelight.getStatus();
-        telemetry.addData("Name", "%s",
-                status.getName());
-        telemetry.addData("LL", "Temp: %.1fC, CPU: %.1f%%, FPS: %d",
-                status.getTemp(), status.getCpu(),(int)status.getFps());
-        telemetry.addData("Pipeline", "Index: %d, Type: %s",
-                status.getPipelineIndex(), status.getPipelineType());
 
 
-        LLResult result = limelight.getLatestResult();
+//        if (result.isValid()) {
+//            // Access general information
+//            Pose3D botpose = result.getBotpose();
+//            double captureLatency = result.getCaptureLatency();
+//            double targetingLatency = result.getTargetingLatency();
+//            double parseLatency = result.getParseLatency();
+//            telemetry.addData("LL Latency", captureLatency + targetingLatency);
+//            telemetry.addData("Parse Latency", parseLatency);
+////          telemetry.addData("PythonOutput", java.util.Arrays.toString(result.getPythonOutput()));
+//
+//
+//            telemetry.addData("tx", result.getTx());
+//            telemetry.addData("txnc", result.getTxNC());
+//            telemetry.addData("ty", result.getTy());
+//            telemetry.addData("tync", result.getTyNC());
+//
+//
+//            telemetry.addData("Botpose", botpose.toString());
+//
+//
+//            // Access barcode results
+//            List<LLResultTypes.BarcodeResult> barcodeResults = result.getBarcodeResults();
+//            for (LLResultTypes.BarcodeResult br : barcodeResults) {
+//                telemetry.addData("Barcode", "Data: %s", br.getData());
+//            }
+//
+//
+//            // Access classifier results
+//            List<LLResultTypes.ClassifierResult> classifierResults = result.getClassifierResults();
+//            for (LLResultTypes.ClassifierResult cr : classifierResults) {
+//                telemetry.addData("Classifier", "Class: %s, Confidence: %.2f", cr.getClassName(), cr.getConfidence());
+//            }
+//
+//
+//            // Access detector results
+//            List<LLResultTypes.DetectorResult> detectorResults = result.getDetectorResults();
+//            for (LLResultTypes.DetectorResult dr : detectorResults) {
+//                telemetry.addData("Detector", "Class: %s, Area: %.2f", dr.getClassName(), dr.getTargetArea());
+//            }
+//
+//
+//            // Access fiducial results
+//            List<LLResultTypes.FiducialResult> fiducialResults = result.getFiducialResults();
+//            for (LLResultTypes.FiducialResult fr : fiducialResults) {
+//                telemetry.addData("Fiducial", "ID: %d, Family: %s, X: %.2f, Y: %.2f", fr.getFiducialId(), fr.getFamily(), fr.getTargetXDegrees(), fr.getTargetYDegrees());
+//            }
+//
+//
+//            // Access color results
+//            List<LLResultTypes.ColorResult> colorResults = result.getColorResults();
+//            for (LLResultTypes.ColorResult cr : colorResults) {
+//                telemetry.addData("Color", "X: %.2f, Y: %.2f", cr.getTargetXDegrees(), cr.getTargetYDegrees());
+//            }
+//        } else {
+//            telemetry.addData("Limelight", "No data available");
+//        }
 
 
-        if (result.isValid()) {
-            // Access general information
-            Pose3D botpose = result.getBotpose();
-            double captureLatency = result.getCaptureLatency();
-            double targetingLatency = result.getTargetingLatency();
-            double parseLatency = result.getParseLatency();
-            telemetry.addData("LL Latency", captureLatency + targetingLatency);
-            telemetry.addData("Parse Latency", parseLatency);
-//                telemetry.addData("PythonOutput", java.util.Arrays.toString(result.getPythonOutput()));
-
-
-            telemetry.addData("tx", result.getTx());
-            telemetry.addData("txnc", result.getTxNC());
-            telemetry.addData("ty", result.getTy());
-            telemetry.addData("tync", result.getTyNC());
-
-
-            telemetry.addData("Botpose", botpose.toString());
-
-
-            // Access barcode results
-            List<LLResultTypes.BarcodeResult> barcodeResults = result.getBarcodeResults();
-            for (LLResultTypes.BarcodeResult br : barcodeResults) {
-                telemetry.addData("Barcode", "Data: %s", br.getData());
-            }
-
-
-            // Access classifier results
-            List<LLResultTypes.ClassifierResult> classifierResults = result.getClassifierResults();
-            for (LLResultTypes.ClassifierResult cr : classifierResults) {
-                telemetry.addData("Classifier", "Class: %s, Confidence: %.2f", cr.getClassName(), cr.getConfidence());
-            }
-
-
-            // Access detector results
-            List<LLResultTypes.DetectorResult> detectorResults = result.getDetectorResults();
-            for (LLResultTypes.DetectorResult dr : detectorResults) {
-                telemetry.addData("Detector", "Class: %s, Area: %.2f", dr.getClassName(), dr.getTargetArea());
-            }
-
-
-            // Access fiducial results
-            List<LLResultTypes.FiducialResult> fiducialResults = result.getFiducialResults();
-            for (LLResultTypes.FiducialResult fr : fiducialResults) {
-                telemetry.addData("Fiducial", "ID: %d, Family: %s, X: %.2f, Y: %.2f", fr.getFiducialId(), fr.getFamily(), fr.getTargetXDegrees(), fr.getTargetYDegrees());
-            }
-
-
-            // Access color results
-            List<LLResultTypes.ColorResult> colorResults = result.getColorResults();
-            for (LLResultTypes.ColorResult cr : colorResults) {
-                telemetry.addData("Color", "X: %.2f, Y: %.2f", cr.getTargetXDegrees(), cr.getTargetYDegrees());
-            }
-        } else {
-            telemetry.addData("Limelight", "No data available");
-        }
-
-
-        telemetry.update();
+       // telemetry.update();
 
 
         // If you press the A button, then you reset the Yaw to be zero from the way

@@ -1,12 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.indivstuff.testmecanum;
+import org.firstinspires.ftc.teamcode.indivstuff.mecanum;
+import org.firstinspires.ftc.teamcode.indivstuff.mecanum;
 
+@TeleOp(name = "purrgramers", group = "Robot")
 public class purrgramers extends OpMode {
 
-    testmecanum drive = new testmecanum();
+    mecanum drive = new mecanum();
     double forward, strafe, rotate;
 
     @Override
