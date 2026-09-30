@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.indivstuff.intake;
 import org.firstinspires.ftc.teamcode.indivstuff.mecanum;
+import org.firstinspires.ftc.teamcode.indivstuff.shooter;
 
 //needs this line so it will appear in the driver hub
 @TeleOp(name = "purrgramers", group = "Robot")
@@ -13,6 +14,7 @@ public class purrgramers extends OpMode {
     //for the intake and mecanum
     mecanum drive = new mecanum();
     intake intake = new intake();
+    shooter shooter = new shooter();
     //creates the variables for mecanum
     double forward, strafe, rotate;
 
@@ -35,6 +37,7 @@ public class purrgramers extends OpMode {
 
         intake.intakeRun();
 
+        shooter.shooterRun();
     }
 //nothing else :)
 }
