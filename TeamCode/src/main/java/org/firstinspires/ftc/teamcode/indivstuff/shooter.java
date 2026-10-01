@@ -1,3 +1,6 @@
+//shooter code, not used in the main code yet
+//issues with the gamepad
+
 package org.firstinspires.ftc.teamcode.indivstuff;
 
 //2500 and 3500 for shooter speeds
