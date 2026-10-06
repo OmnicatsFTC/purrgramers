@@ -27,6 +27,10 @@ public class shooter {
             shooter.setPower(0.41);
         } else if(gamepad1.rightTriggerWasPressed()){
             shooter.setPower(.53);
+        } else if(gamepad1.leftTriggerWasReleased()){
+            shooter.setPower(0);
+        } else if(gamepad1.rightTriggerWasReleased()){
+            shooter.setPower(0);
         }
     }
 

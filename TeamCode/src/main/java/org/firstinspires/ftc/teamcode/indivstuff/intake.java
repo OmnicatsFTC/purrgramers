@@ -21,12 +21,14 @@ public class intake {
     }
     //method for actually running the code, sets the motor speed to different values
     //depending on which bumper was pressed
-    public void intakeRun(){
+    public void intakeRun(double control){
             if (gamepad1.leftBumperWasPressed()){
                 intakeMotor.setPower(1);
             } else if (gamepad1.rightBumperWasPressed()) {
                 intakeMotor.setPower(-1);
-            } else if (gamepad1.bWasPressed()) {
+            } else if (gamepad1.leftBumperWasReleased()) {
+                intakeMotor.setPower(0);
+            } else if (gamepad1.rightBumperWasReleased()) {
                 intakeMotor.setPower(0);
             }
         }

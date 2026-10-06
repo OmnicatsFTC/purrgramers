@@ -11,6 +11,18 @@ import org.firstinspires.ftc.teamcode.indivstuff.intake;
 import org.firstinspires.ftc.teamcode.indivstuff.mecanum;
 import org.firstinspires.ftc.teamcode.indivstuff.shooter;
 
+/*
+left bumper - intake __ (in/out)
+right bumper - intake __ (in/out)
+left trigger - slower of the shooter speeds
+right trigger - faster of the shooter speeds
+joysticks - drive
+a - ll stuff
+b -
+x -
+y -
+ */
+
 //needs this line so it will appear in the driver hub
 @TeleOp(name = "purrgramers", group = "Robot")
 public class purrgramers extends OpMode {
@@ -18,7 +30,7 @@ public class purrgramers extends OpMode {
     //makes new classes (? i forgot the term for it but like creates a new instance or something)
     //for the intake and mecanum
     mecanum drive = new mecanum();
-   // intake intake = new intake();
+    //intake intake = new intake();
     //shooter shooter = new shooter();
     //creates the variables for mecanum
     double forward, strafe, rotate;
@@ -28,8 +40,8 @@ public class purrgramers extends OpMode {
     @Override
     public void init(){
         drive.init(hardwareMap);
-        //intake.init(hardwareMap);
 
+        //shooter init
         shooter = hardwareMap.get(DcMotor.class, "shooter");
         shooter.setDirection(DcMotorSimple.Direction.FORWARD);
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -50,7 +62,7 @@ public class purrgramers extends OpMode {
         //shooter.shooterRun();
         //shooter code bc the gamepad won't work if in a seperate file for some reason?
         if (gamepad1.leftTriggerWasPressed()){
-            shooter.setPower(0.25);
+            shooter.setPower(0.15);
         } else if(gamepad1.rightTriggerWasPressed()){
             shooter.setPower(.53);
         } else if (gamepad1.leftTriggerWasReleased()){
