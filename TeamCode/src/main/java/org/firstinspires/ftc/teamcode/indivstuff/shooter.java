@@ -22,14 +22,14 @@ public class shooter {
         shooter.setDirection(DcMotorSimple.Direction.FORWARD);
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
-    public void shooterRun(){
-        if (gamepad1.leftTriggerWasPressed()){
-            shooter.setPower(0.41);
-        } else if(gamepad1.rightTriggerWasPressed()){
+    public void shooterRun(double button1, double button2){
+        if (button1 > 0){
+            shooter.setPower(0.15);
+        } else if(button2 > 0){
             shooter.setPower(.53);
-        } else if(gamepad1.leftTriggerWasReleased()){
+        } else if(button2 <= 0){
             shooter.setPower(0);
-        } else if(gamepad1.rightTriggerWasReleased()){
+        } else if(button1 <= 0){
             shooter.setPower(0);
         }
     }
