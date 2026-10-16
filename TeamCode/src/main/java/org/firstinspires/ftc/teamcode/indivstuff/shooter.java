@@ -9,24 +9,25 @@ package org.firstinspires.ftc.teamcode.indivstuff;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.ftccommon.external.OnCreate;
 
 public class shooter {
-    private DcMotor shooter;
+    private DcMotorEx shooter;
 
     public void init(HardwareMap hwMap){
-        shooter = hwMap.get(DcMotor.class, "shooter");
+        shooter = hwMap.get(DcMotorEx.class, "shooter");
         shooter.setDirection(DcMotorSimple.Direction.FORWARD);
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void shooterRun(double button1, double button2){
         if (button1 > 0){
-            shooter.setPower(0.15);
+            shooter.setVelocity(2000);
         } else if(button2 > 0){
-            shooter.setPower(.53);
+            shooter.setPower(.05);
         } else if(button2 <= 0){
             shooter.setPower(0);
         } else if(button1 <= 0){

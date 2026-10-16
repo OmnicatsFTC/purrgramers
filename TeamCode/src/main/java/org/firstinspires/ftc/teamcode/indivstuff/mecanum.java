@@ -20,10 +20,10 @@ public class mecanum {
 
     public void init(HardwareMap hwMap){
         //names the motors
-        frontLeft = hwMap.get(DcMotor.class, "frontLeftDrive");
-        frontRight = hwMap.get(DcMotor.class, "frontRightDrive");
-        backLeft = hwMap.get(DcMotor.class, "backLeftDrive");
-        backRight = hwMap.get(DcMotor.class, "backRightDrive");
+        frontLeft = hwMap.get(DcMotor.class, "front_left_drive");
+        frontRight = hwMap.get(DcMotor.class, "front_right_drive");
+        backLeft = hwMap.get(DcMotor.class, "back_left_drive");
+        backRight = hwMap.get(DcMotor.class, "back_right_drive");
         //sets the motor directions bc they aren't all facing forwards
         frontLeft.setDirection(DcMotor.Direction.FORWARD);
         frontRight.setDirection(DcMotor.Direction.REVERSE);

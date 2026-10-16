@@ -5,7 +5,7 @@ plugins {
 android {
     namespace 'com.example.pedro'
     compileSdk {
-        version = release(30)
+        version = release(34)
     }
 
     defaultConfig {

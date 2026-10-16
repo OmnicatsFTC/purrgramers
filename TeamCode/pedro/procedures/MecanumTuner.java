@@ -4,6 +4,8 @@ import com.pedropathing.tuning.autotune.*;
 import com.pedropathing.tuning.autotune.Display.FourWheelBot.Wheel;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@TeleOp(name = "mecTuning", group = "Robot");
+
 enum Direction {
     @DisplayName("Forward") FORWARD,
     @DisplayName("Reversed") REVERSE

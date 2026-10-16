@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedro;
 
-public class Tuning {
-    // Tuners go here
+@TeleOp(name = "mecanumTuner", group = "Robot")
+@Tuner
+public static Procedure MecanumTuner() {
+    return new MecanumTuner();
 }
