@@ -64,7 +64,7 @@ public class purrgramers extends OpMode {
         shooter.shooterRun(shooterButton1, shooterButton2);
 
         boolean rampButton = gamepad1.y;
-        //indexer.indexerRun(rampButton); //testing
+        //indexer.indexerRun(rampButton); //hi
 
         boolean intake1 = gamepad1.left_bumper;
         boolean intake2 = gamepad1.right_bumper;
