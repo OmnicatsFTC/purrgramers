@@ -54,8 +54,8 @@ public class purrgramers extends OpMode {
     @Override
     public void loop() {
         forward = gamepad1.left_stick_y;
-        strafe = gamepad1.left_stick_x;
-        rotate = gamepad1.right_stick_x;
+        strafe = -gamepad1.left_stick_x;
+        rotate = -gamepad1.right_stick_x;
         //drive.fieldOriented(forward,strafe,rotate);
         drive.drive(forward,strafe,rotate);
 
