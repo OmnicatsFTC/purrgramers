@@ -56,7 +56,8 @@ public class purrgramers extends OpMode {
         forward = gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
         rotate = gamepad1.right_stick_x;
-        drive.fieldOriented(forward,strafe,rotate);
+        //drive.fieldOriented(forward,strafe,rotate);
+        drive.drive(forward,strafe,rotate);
 
         double shooterButton1 = gamepad1.left_trigger;
         double shooterButton2 = gamepad2.right_trigger;
