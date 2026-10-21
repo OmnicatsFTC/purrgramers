@@ -33,7 +33,6 @@ public class purrgramers extends OpMode {
     mecanum drive = new mecanum();
     intake intake = new intake();
     shooter shooter = new shooter();
-    //ramp indexer = new ramp();
     double forward, strafe, rotate;
 
     //initilizes the instances with hardwareMap (hwMap connects the code and the actual motors)
@@ -41,7 +40,6 @@ public class purrgramers extends OpMode {
     public void init(){
         drive.init(hardwareMap);
         shooter.init(hardwareMap);
-        //indexer.init(hardwareMap);
         intake.init(hardwareMap);
         //shooter init
         //shooter = hardwareMap.get(DcMotor.class, "shooter");
@@ -59,12 +57,11 @@ public class purrgramers extends OpMode {
         //drive.fieldOriented(forward,strafe,rotate);
         drive.drive(forward,strafe,rotate);
 
-        double shooterButton1 = gamepad1.left_trigger;
-        double shooterButton2 = gamepad2.right_trigger;
-        shooter.shooterRun(shooterButton1, shooterButton2);
 
         boolean rampButton = gamepad1.y;
-        //indexer.indexerRun(rampButton); //hi
+        double shooterButton1 = gamepad1.left_trigger;
+        double shooterButton2 = gamepad2.right_trigger;
+        shooter.shooterRun(shooterButton1, shooterButton2, rampButton);
 
         boolean intake1 = gamepad1.left_bumper;
         boolean intake2 = gamepad1.right_bumper;
