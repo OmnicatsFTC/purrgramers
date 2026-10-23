@@ -23,14 +23,10 @@ public class intake {
     //method for actually running the code, sets the motor speed to different values
     //(either negative or postive for both directions, we don't know which is which yet)
     //depending on which bumper was pressed
-    public void intakeRun(boolean button1, boolean button2){
-            if (button1){
-                intakeMotor.setVelocity(1000);
-            } else if (button2) {
+    public void intakeRun(boolean button2){
+            if (button2){
                 intakeMotor.setVelocity(-1000);
-            } else if (!button1) {
-                intakeMotor.setVelocity(0);
-            } else if (!button2) {
+            } else {
                 intakeMotor.setVelocity(0);
             }
         }

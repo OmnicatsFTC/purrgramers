@@ -36,28 +36,19 @@ public class shooter {
         smallIndexer.setDirection(CRServo.Direction.FORWARD);
     }
 
-    double shootervel;
     public void shooterRun(double button1, double button2, boolean button){
         if (button1 > 0){
-            shootervel = 2000;
-            shooter.setVelocity(2000);
-        } else if(button2 > 0){
-            shootervel = 1000;
-            shooter.setVelocity(1000);
-        } else if(button2 <= 0){
-            shootervel = 0;
-            shooter.setVelocity(0);
+            shooter.setVelocity(1850);
         } else if(button1 <= 0){
-            shootervel = 0;
             shooter.setVelocity(0);
         }
 
         if(button == true){
-            smallIndexer.setPower(0.5);
-            mainIndexer.setVelocity(shootervel);
+            smallIndexer.setPower(1);
+            mainIndexer.setVelocity(-2000);
         } else if (button == false) {
             smallIndexer.setPower(0);
-            mainIndexer.setPower(shootervel);
+            mainIndexer.setPower(0);
         }
     }
 

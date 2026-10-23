@@ -63,9 +63,9 @@ public class purrgramers extends OpMode {
         double shooterButton2 = gamepad2.right_trigger;
         shooter.shooterRun(shooterButton1, shooterButton2, rampButton);
 
-        boolean intake1 = gamepad1.left_bumper;
+
         boolean intake2 = gamepad1.right_bumper;
-        intake.intakeRun(intake1, intake2);
+        intake.intakeRun(intake2);
 
         //shooter code bc the gamepad won't work if in a separate file for some reason?
         /*
