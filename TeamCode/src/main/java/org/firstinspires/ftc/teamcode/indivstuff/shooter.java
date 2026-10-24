@@ -18,38 +18,30 @@ import org.firstinspires.ftc.ftccommon.external.OnCreate;
 
 public class shooter {
     private DcMotorEx shooter;
-    private DcMotorEx mainIndexer;
-    private CRServo smallIndexer;
 
     public void init(HardwareMap hwMap){
         shooter = hwMap.get(DcMotorEx.class, "shooter");
         shooter.setDirection(DcMotorSimple.Direction.FORWARD);
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        //sets up indexer dc motor
-        mainIndexer = hwMap.get(DcMotorEx.class, "rampMotor");
-        mainIndexer.setDirection(DcMotorSimple.Direction.FORWARD);
-        mainIndexer.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
-        //sets up the servo
-        smallIndexer = hwMap.get(CRServo.class, "rampServo");
-        smallIndexer.setDirection(CRServo.Direction.FORWARD);
     }
+    boolean shooterRun = false;
+    boolean lastPressed = false;
+    public void shooterRun(boolean button1){
+        boolean shootertrue = button1;
 
-    public void shooterRun(double button1, double button2, boolean button){
-        if (button1 > 0){
+        if (shootertrue && !lastPressed) {
+            shootertrue = !shootertrue;
+        }
+        lastPressed = shootertrue;
+
+        if (shooterRun) {
             shooter.setVelocity(1850);
-        } else if(button1 <= 0){
+        } else {
             shooter.setVelocity(0);
         }
-
-        if(button == true){
-            smallIndexer.setPower(1);
-            mainIndexer.setVelocity(-2000);
-        } else if (button == false) {
-            smallIndexer.setPower(0);
-            mainIndexer.setPower(0);
         }
+
     }
 
-}
+

@@ -13,15 +13,14 @@ import org.firstinspires.ftc.teamcode.indivstuff.mecanum;
 import org.firstinspires.ftc.teamcode.indivstuff.shooter;
 
 /*
-left bumper - intake __ (in/out)
-right bumper - intake __ (in/out)
-left trigger - slower of the shooter speeds
-right trigger - faster of the shooter speeds
+left bumper - intake out
+right bumper - intake in
+left trigger -
 joysticks - drive
 a - ll stuff
-b -
-x -
-y - ramp/indexer
+b - shooter trigger
+x - servo
+y -
 */
 
 //needs this line so it will appear in the driver hub
@@ -58,14 +57,13 @@ public class purrgramers extends OpMode {
         drive.drive(forward,strafe,rotate);
 
 
-        boolean rampButton = gamepad1.y;
-        double shooterButton1 = gamepad1.left_trigger;
-        double shooterButton2 = gamepad2.right_trigger;
-        shooter.shooterRun(shooterButton1, shooterButton2, rampButton);
+        boolean shooterButton1 = gamepad1.b;
+        shooter.shooterRun(shooterButton1);
 
-
+        boolean servo = gamepad1.x;
+        boolean intake1 = gamepad1.left_bumper;
         boolean intake2 = gamepad1.right_bumper;
-        intake.intakeRun(intake2);
+        intake.intakeRun(intake1, intake2, servo);
 
         //shooter code bc the gamepad won't work if in a separate file for some reason?
         /*
