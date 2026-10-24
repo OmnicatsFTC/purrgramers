@@ -50,7 +50,8 @@ public class intake {
             } else if (!button2) { //stops
                 intakeMotor.setVelocity(0);
                 mainIndexer.setVelocity(0);
-            } else if (button3){ //servo go
+            }
+            if (button3){ //servo go
                 smallIndexer.setPower(1);
             } else if (!button3){ //servo stop
                 smallIndexer.setPower(0);

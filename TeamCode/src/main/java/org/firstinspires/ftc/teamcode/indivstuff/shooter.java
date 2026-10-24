@@ -31,7 +31,7 @@ public class shooter {
         boolean shootertrue = button1;
 
         if (shootertrue && !lastPressed) {
-            shootertrue = !shootertrue;
+            shooterRun = !shooterRun;
         }
         lastPressed = shootertrue;
 

@@ -17,7 +17,7 @@ left bumper - intake out
 right bumper - intake in
 left trigger -
 joysticks - drive
-a - ll stuff
+a - ll stuff NONONONO IGNORE
 b - shooter trigger
 x - servo
 y -
