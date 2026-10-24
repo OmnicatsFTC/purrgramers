@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode.kittyCode;
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.LLResultTypes;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -39,6 +40,7 @@ import com.qualcomm.robotcore.util.Range;
 
 import java.util.List;
 
+@Disabled
 @TeleOp(name="DriveToAprilTag", group = "testing")
 // @Disabled
 public class DriveToAprilTagTest extends LinearOpMode
