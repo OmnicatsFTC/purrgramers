@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Basic Mecanum Move Forward", group="Linear Opmode")
-public class BasicMecanumAuto extends LinearOpMode {
+@Autonomous(name="Short Auton", group="Linear Opmode")
+public class ShortAuton extends LinearOpMode {
 
     // Declare drive motors
     private DcMotor leftFront = null;
@@ -49,7 +49,7 @@ public class BasicMecanumAuto extends LinearOpMode {
         leftBack.setPower(power);
         rightBack.setPower(power);
 
-        sleep(1000); // Run for 1 seconds
+        sleep(1000); // Run for 1 second
 
         // Stop all motors
         leftFront.setPower(0);

@@ -39,20 +39,20 @@ public class intake {
     //depending on which bumper was pressed
     public void intakeRun(boolean button1, boolean button2, boolean button3){
             if (button2){ //normal intake and indexer
-                intakeMotor.setVelocity(-1500);
+                intakeMotor.setVelocity(-2000);
                 mainIndexer.setVelocity(-2000);
             } else if (!button1){ //stops
                 intakeMotor.setVelocity(0);
                 mainIndexer.setVelocity(0);
             } else if (button1){ //outtake and out indexer
-                intakeMotor.setVelocity(1500);
+                intakeMotor.setVelocity(2000);
                 mainIndexer.setVelocity(2000);
             } else if (!button2) { //stops
                 intakeMotor.setVelocity(0);
                 mainIndexer.setVelocity(0);
             }
             if (button3){ //servo go
-                smallIndexer.setPower(1);
+                smallIndexer.setPower(3);
             } else if (!button3){ //servo stop
                 smallIndexer.setPower(0);
             }
