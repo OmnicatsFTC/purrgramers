@@ -49,7 +49,7 @@ public class LongAuton extends LinearOpMode {
         leftBack.setPower(power);
         rightBack.setPower(power);
 
-        sleep(5100); // Run for 3.4 seconds
+        sleep(5300); // Run for 3.4 seconds
 
         // Stop all motors
         leftFront.setPower(0);
