@@ -3,7 +3,10 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import org.firstinspires.ftc.teamcode.indivstuff.shooter;
 
 @Autonomous(name="Auton shoot", group="Linear Opmode")
 public class Auton_noPredo extends LinearOpMode {
@@ -14,12 +17,13 @@ public class Auton_noPredo extends LinearOpMode {
     private DcMotor leftBack = null;
     private DcMotor rightBack = null;
 
-    private DcMotor shooter = null;
 
     private ElapsedTime runtime = new ElapsedTime();
-
     @Override
     public void runOpMode() {
+
+        shooter shooter = new shooter();
+        shooter.init(hardwareMap);
 
         // Initialize the hardware variables.
         leftFront  = hardwareMap.get(DcMotor.class, "front_left_drive");
@@ -45,29 +49,38 @@ public class Auton_noPredo extends LinearOpMode {
         // --- AUTONOMOUS SEQUENCE ---
 
         // Move forward at 30% power for 1.5 seconds (1500 milliseconds)
-        double power = 0.3;
+        double power = -0.3;
         leftFront.setPower(power);
         rightFront.setPower(power);
         leftBack.setPower(power);
         rightBack.setPower(power);
 
-        sleep(2550); // Run for 2.55 seconds
+        sleep(3000); // Run for 1 seconds
 
         // turn right
-        leftFront.setPower(0);
-        rightFront.setPower(0.5);
-        leftBack.setPower(0);
-        rightBack.setPower(0.5);
+        leftFront.setPower(.5);
+        rightFront.setPower(-0.5);
+        leftBack.setPower(.5);
+        rightBack.setPower(-0.5);
 
-        sleep(1000); // Run for 1 second
+        sleep(900); // Run for 1 second
+
+        leftFront.setPower(0.3);
+        rightFront.setPower(0.3);
+        leftBack.setPower(0.3);
+        rightBack.setPower(0.3);
+
+        sleep(100); //1 second for backup
+
+        telemetry.addData("Path", "Complete");
+        telemetry.update();
+        //test
 
         leftFront.setPower(0);
         rightFront.setPower(0);
         leftBack.setPower(0);
         rightBack.setPower(0);
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        //test
+//        shooter.setVelocity(1850);
+        shooter.shootatvelocity(1850);
     }
 }

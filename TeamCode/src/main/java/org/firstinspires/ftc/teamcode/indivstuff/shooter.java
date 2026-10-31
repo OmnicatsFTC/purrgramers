@@ -42,7 +42,9 @@ public class shooter {
             shooter.setVelocity(0);
         }
         }
-
+    public void shootatvelocity(double velocity){
+        shooter.setVelocity(velocity);
+    }
     }
 
 
