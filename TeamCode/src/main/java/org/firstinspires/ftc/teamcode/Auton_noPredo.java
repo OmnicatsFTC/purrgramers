@@ -7,6 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.indivstuff.shooter;
+import org.firstinspires.ftc.teamcode.indivstuff.intake;
 
 @Autonomous(name="Auton shoot", group="Linear Opmode")
 public class Auton_noPredo extends LinearOpMode {
@@ -21,6 +22,7 @@ public class Auton_noPredo extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
+
 
         shooter shooter = new shooter();
         shooter.init(hardwareMap);
@@ -84,3 +86,4 @@ public class Auton_noPredo extends LinearOpMode {
         shooter.shootatvelocity(1850);
     }
 }
+//adding intake in later. rn working with lexi's team on odometry
