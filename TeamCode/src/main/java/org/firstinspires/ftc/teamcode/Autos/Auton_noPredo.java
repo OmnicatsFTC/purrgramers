@@ -1,12 +1,13 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Autos;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import org.firstinspires.ftc.teamcode.indivstuff.shooter;
 
-@Autonomous(name="Long Auton", group="Linear Opmode")
-public class LongAuton extends LinearOpMode {
+@Autonomous(name="Auton shoot", group="Linear Opmode")
+public class Auton_noPredo extends LinearOpMode {
 
     // Declare drive motors
     private DcMotor leftFront = null;
@@ -14,10 +15,14 @@ public class LongAuton extends LinearOpMode {
     private DcMotor leftBack = null;
     private DcMotor rightBack = null;
 
-    private ElapsedTime runtime = new ElapsedTime();
 
+    private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
+
+
+        shooter shooter = new shooter();
+        shooter.init(hardwareMap);
 
         // Initialize the hardware variables.
         leftFront  = hardwareMap.get(DcMotor.class, "front_left_drive");
@@ -43,21 +48,39 @@ public class LongAuton extends LinearOpMode {
         // --- AUTONOMOUS SEQUENCE ---
 
         // Move forward at 30% power for 1.5 seconds (1500 milliseconds)
-        double power = 0.3;
+        double power = -0.3;
         leftFront.setPower(power);
         rightFront.setPower(power);
         leftBack.setPower(power);
         rightBack.setPower(power);
 
-        sleep(5300); // Run for 3.4 seconds
+        sleep(3000); // Run for 1 seconds
 
-        // Stop all motors
+        // turn right
+        leftFront.setPower(.5);
+        rightFront.setPower(-0.5);
+        leftBack.setPower(.5);
+        rightBack.setPower(-0.5);
+
+        sleep(900); // Run for 1 second
+
+        leftFront.setPower(0.3);
+        rightFront.setPower(0.3);
+        leftBack.setPower(0.3);
+        rightBack.setPower(0.3);
+
+        sleep(100); //1 second for backup
+
+        telemetry.addData("Path", "Complete");
+        telemetry.update();
+        //test
+
         leftFront.setPower(0);
         rightFront.setPower(0);
         leftBack.setPower(0);
         rightBack.setPower(0);
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
+//        shooter.setVelocity(1850);
+        shooter.shootatvelocity(1850);
     }
 }
+//adding intake in later. rn working with lexi's team on odometry
