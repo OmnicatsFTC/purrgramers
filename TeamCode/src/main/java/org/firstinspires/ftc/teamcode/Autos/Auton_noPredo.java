@@ -15,13 +15,12 @@ public class Auton_noPredo extends LinearOpMode {
     private DcMotor leftBack = null;
     private DcMotor rightBack = null;
 
+    shooter shooter = new shooter();
 
     private ElapsedTime runtime = new ElapsedTime();
     @Override
     public void runOpMode() {
 
-
-        shooter shooter = new shooter();
         shooter.init(hardwareMap);
 
         // Initialize the hardware variables.
