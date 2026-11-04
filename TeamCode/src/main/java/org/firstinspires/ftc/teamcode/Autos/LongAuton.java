@@ -1,12 +1,12 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Autos;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="Short Auton", group="Linear Opmode")
-public class ShortAuton extends LinearOpMode {
+@Autonomous(name="Long Auton", group="Linear Opmode")
+public class LongAuton extends LinearOpMode {
 
     // Declare drive motors
     private DcMotor leftFront = null;
@@ -49,7 +49,7 @@ public class ShortAuton extends LinearOpMode {
         leftBack.setPower(power);
         rightBack.setPower(power);
 
-        sleep(1000); // Run for 1 second
+        sleep(5100); // Run for 3.4 seconds
 
         // Stop all motors
         leftFront.setPower(0);
