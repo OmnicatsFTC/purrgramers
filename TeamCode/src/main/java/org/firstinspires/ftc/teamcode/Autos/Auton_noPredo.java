@@ -81,6 +81,15 @@ public class Auton_noPredo extends LinearOpMode {
         rightBack.setPower(0);
 //        shooter.setVelocity(1850);
         shooter.shootatvelocity(1850);
+
+        sleep(3000);
+
+        leftFront.setPower(-1);
+        rightFront.setPower(-1);
+        leftBack.setPower(-1);
+        rightBack.setPower(-1);
+        shooter.shootatvelocity(0);
+
     }
 }
 //adding intake in later. rn working with lexi's team on odometry
