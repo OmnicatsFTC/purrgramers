@@ -61,7 +61,7 @@ public class Auton_noPredo extends LinearOpMode {
         leftBack.setPower(.5);
         rightBack.setPower(-0.5);
 
-        sleep(900); // Run for 1 second
+        sleep(700); // Run for 1 second
 
         leftFront.setPower(0.3);
         rightFront.setPower(0.3);
