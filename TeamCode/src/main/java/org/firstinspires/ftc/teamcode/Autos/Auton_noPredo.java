@@ -81,7 +81,7 @@ public class Auton_noPredo extends LinearOpMode {
 //        shooter.setVelocity(1850);
         shooter.shootatvelocity(1850);
 
-        sleep(3000);
+        sleep(1000);
 
         leftFront.setPower(-1);
         rightFront.setPower(-1);

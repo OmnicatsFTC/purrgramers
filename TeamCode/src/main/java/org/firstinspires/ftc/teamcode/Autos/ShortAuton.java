@@ -52,10 +52,19 @@ public class ShortAuton extends LinearOpMode {
         sleep(1000); // Run for 1 second
 
         // Stop all motors
+        leftFront.setPower(0.2);
+        rightFront.setPower(0);
+        leftBack.setPower(0.2);
+        rightBack.setPower(0);
+
+        sleep(100);
+
         leftFront.setPower(0);
         rightFront.setPower(0);
         leftBack.setPower(0);
         rightBack.setPower(0);
+
+        sleep(1000);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
