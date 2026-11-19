@@ -49,6 +49,10 @@ public class Auton_OD extends LinearOpMode{
             return false;
         }
 
+            public Action shoot () {
+                return new shoot();
+            }
+
 
 
     }
